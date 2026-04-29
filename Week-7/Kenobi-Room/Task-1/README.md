@@ -16,3 +16,5 @@ nmap 10.65.159.55 -sV -Pn
 - Basic Nmap scanning
 - Service version detection
 - Importance of enumeration before exploitation
+
+
