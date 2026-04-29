@@ -1,47 +1,44 @@
-# Task 2 - SMB & NFS Enumeration
+# Task 2 - Enumerating Samba for Shares
 
-## 🎯 Goal
-Enumerate SMB shares and identify NFS mounts.
+## 🎯 Objective
+Identify SMB shares and extract sensitive information.
 
-## 🔍 Steps Performed
-
-### SMB Enumeration
+## 🔍 SMB Enumeration
 
 ```bash
 nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse 10.65.159.55
 ```
 
+## 📂 Connect to SMB Share
+
 ```bash
 smbclient //10.65.159.55/anonymous
 ```
+
+## 📄 List Files
 
 ```bash
 ls
 ```
 
+## 📥 Download File
+
 ```bash
 smbget -R smb://10.65.159.55/anonymous
 ```
 
----
-
-### NFS Enumeration
+## 📡 NFS Enumeration
 
 ```bash
-showmount -e 10.65.159.55
-```
-
-```bash
-nmap -p 111 --script=nfs-ls,nfs-showmount 10.65.159.55
+nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.65.159.55
 ```
 
 ## 📌 Key Findings
-- SMB anonymous share accessible
-- File found: `log.txt`
-- FTP service identified later on port **21**
+- SMB shares found: **3**
+- File discovered: `log.txt`
+- FTP service identified: **port 21**
 - NFS mount exposed: `/var`
 
-## 🧠 What I Learned
-- SMB anonymous access risks
-- How logs reveal sensitive paths
-- NFS misconfigurations expose internal directories
+## 🧠 Notes
+- Anonymous SMB access enabled file leakage
+- log.txt contained SSH key path and service hints
