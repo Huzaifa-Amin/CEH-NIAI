@@ -1,6 +1,3 @@
-
-### `Task2/README.md`
-```markdown
 # Task 2 - SMB and NFS Enumeration
 
 ## 🎯 Goal
