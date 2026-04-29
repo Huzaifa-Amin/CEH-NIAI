@@ -12,11 +12,7 @@ Enumerate Samba shares and discover useful mount points.
 ```bash
 
 nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse 10.10.101.17
-
-smbclient //10.10.101.17/anonymous
-
+smbclient //10.10.101.17/anonymou
 smbget -R smb://10.10.101.17/anonymous
-
 showmount -e 10.10.101.17
-
 nmap -p 111 --script=nfs-ls,nfs-showmount 10.10.101.17
