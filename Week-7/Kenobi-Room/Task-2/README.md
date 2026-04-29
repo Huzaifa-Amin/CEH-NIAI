@@ -3,7 +3,7 @@
 ```markdown
 # Task 2 - SMB and NFS Enumeration
 
-## 🎯 Goal 
+## 🎯 Goal
 Enumerate Samba shares and discover useful mount points.
 
 ## 🔍 Steps Performed
